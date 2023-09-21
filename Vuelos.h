@@ -31,27 +31,27 @@ private:
     std::string Terminal;
 
 public:
-	Vuelo ();
+	Vuelo ();                                               //Metodos Constructores
     Vuelo (std::string Des, std::string Aero, std::string Mat, std::string Hor, std::string Pue, std::string Ter);
-    void swap1(std::vector<int>, int, int);
-    std::vector<int> ASCII (std::string letter);
+
+    std::vector<int> ASCII (std::string letter);            //Metodos de calculo o traduccion
     int Primer(std::vector<int> v);
     int SHoraN(string letter);
-    std::vector<string> NDestinoN (std::vector<Vuelo> arr);
+
+    std::vector<string> NDestinoN (std::vector<Vuelo> arr); //Metodos de revision
     std::vector<int> NAeroLineaN (std::vector<Vuelo> arr);
     std::vector<int> NHoraN (std::vector<Vuelo> arr);
 
-    void imprime_info();
+    void imprime_info();                                    //Metodos de impresion
     void imprime_info(std::vector<Vuelo> arr);
     void imprime_avion();
 
-    string get_Destino(){return Destino;}
-    void set_DestinoN(string Des){DestinoN= ASCII(Des);};
-
+    string get_Destino(){return Destino;}                   //Metodos Geter
     int get_AerolineaN(){return AerolineaN;}
-    void set_AerolineaN(string Aero){AerolineaN= Primer(ASCII(Aero));};
-
     int get_HoraN(){return HoraN;}
+
+    void set_AerolineaN(string Aero){AerolineaN= Primer(ASCII(Aero));}; //Metodos Seter
+    void set_DestinoN(string Des){DestinoN= ASCII(Des);};
     void set_HoraN(string Hor){HoraN= SHoraN(Hor);};
 
 };
@@ -79,11 +79,7 @@ Vuelo::Vuelo (std::string Des, std::string Aero, std::string Mat, std::string Ho
     Puerta     = Pue;
     Terminal   = Ter;
 }
-void Vuelo::swap1(std::vector<int> v, int i, int j) {
-	int aux = v[i];
-	v[i] = v[j];
-	v[j] = aux;
-}
+
 std::vector<int> Vuelo :: ASCII(std::string letter){
     int L= letter.length();
     std::vector<int> vec;
