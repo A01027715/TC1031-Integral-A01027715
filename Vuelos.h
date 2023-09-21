@@ -9,6 +9,7 @@
 #define Vuelos_h
 
 #include <iostream> 
+#include <cstring>
 #include <sstream>
 #include <fstream>
 #include <vector>
@@ -32,6 +33,7 @@ private:
 public:
 	Vuelo ();
     Vuelo (std::string Des, std::string Aero, std::string Mat, std::string Hor, std::string Pue, std::string Ter);
+    void swap1(std::vector<int>, int, int);
     std::vector<int> ASCII (std::string letter);
     int Primer(std::vector<int> v);
     int SHoraN(string letter);
@@ -67,15 +69,20 @@ Vuelo::Vuelo (){
 }
 
 Vuelo::Vuelo (std::string Des, std::string Aero, std::string Mat, std::string Hor, std::string Pue, std::string Ter){
-    Destino=Des;
-    DestinoN= ASCII(Des);
-    Aerolinea=Aero;
-    AerolineaN=Primer(ASCII(Mat));
-    Matricula=Mat;
-    Hora=Hor;
-    HoraN=SHoraN(Hor);
-    Puerta=Pue;
-    Terminal=Ter;
+    Destino    = Des;
+    DestinoN   = ASCII(Des);
+    Aerolinea  = Aero;
+    AerolineaN = Primer(ASCII(Mat));
+    Matricula  = Mat;
+    Hora       = Hor;
+    HoraN      = SHoraN(Hor);
+    Puerta     = Pue;
+    Terminal   = Ter;
+}
+void Vuelo::swap1(std::vector<int> v, int i, int j) {
+	int aux = v[i];
+	v[i] = v[j];
+	v[j] = aux;
 }
 std::vector<int> Vuelo :: ASCII(std::string letter){
     int L= letter.length();
@@ -93,19 +100,24 @@ int Vuelo :: Primer(std::vector<int> v){
 }
 
 int Vuelo:: SHoraN(string letter){
-    int L= letter.length();
     int Total = 1000;
-    int sum,r;
+    int sum,r,L;
+    sum= 0;
+    string nombre;
+    L= letter.length();
+    char* LET = new char[L + 1];
+    strcpy(LET, letter.c_str());
     for (int i = 0; i < L; i++){
-        string nombre = letter.substr(i, i);
+        nombre = LET [i];
         if (nombre != ":"){
             istringstream(nombre) >> r;
-            sum= sum + (Total*r);
+            sum = sum + (Total * r);
             Total = Total /10;
         }
     }
     return sum;
 }
+
 std::vector<string> Vuelo::NDestinoN(std::vector<Vuelo> arr) {
     std::vector<string> vec;
     for (int i = 0; i < arr.size(); i++) {
@@ -135,6 +147,7 @@ void Vuelo::imprime_info(std::vector<Vuelo> arr){
         arr[i].imprime_info();
     }
 }
+
 void Vuelo::imprime_info(){
 	cout << "_______________________________________ \n" ;
     cout << "Destino: "<< Destino << endl;
@@ -147,15 +160,15 @@ void Vuelo::imprime_info(){
 }
 
 void Vuelo::imprime_avion(){
-cout<<"                                    |"<<endl;
-cout<<"                                    |"<<endl;
-cout<<"                                  .-'-."<<endl;
-cout<<"                                 ' ___ '"<<endl;
-cout<<"                       ---------'  .-.  '---------"<<endl;
-cout<<"       _________________________'  '-'  '_________________________"<<endl;
-cout<<"        ''''''-|---|--/    \==][^',_m_,'^][==/    \--|---|-''''''"<<endl;
-cout<<"                      \    /  ||/   H   \||  \    /"<<endl;
-cout<<"                       '--'   OO   O|O   OO   '--'"<<endl;
+cout<<"                                    |"                              <<endl;
+cout<<"                                    |"                              <<endl;
+cout<<"                                  .-'-."                            <<endl;
+cout<<"                                 ' ___ '"                           <<endl;
+cout<<"                       ---------'  .-.  '---------"                 <<endl;
+cout<<"       _________________________'  '-'  '_________________________" <<endl;
+cout<<"        ''''''-|---|--/    \==][^',_m_,'^][==/    \--|---|-''''''"  <<endl;
+cout<<"                      \    /  ||/   H   \||  \    /"                <<endl;
+cout<<"                       '--'   OO   O|O   OO   '--'"                 <<endl;
 }
 
 #endif
