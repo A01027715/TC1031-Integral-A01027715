@@ -15,6 +15,7 @@
 #include <vector>
 #include <list>
 #include <stdio.h>
+#include "list.h"
 
 using namespace std;
 
@@ -32,19 +33,22 @@ private:
 
 public:
 	Vuelo ();                                               //Metodos Constructores
-    Vuelo (std::string Des, std::string Aero, std::string Mat, std::string Hor, std::string Pue, std::string Ter);
+    Vuelo (string Des, string Aero, string Mat, string Hor, string Pue, string Ter);
 
-    std::vector<int> ASCII (std::string letter);            //Metodos de calculo o traduccion
-    int Primer(std::vector<int> v);
+    std::vector<int> ASCII (string letter);            //Metodos de calculo o traduccion
+    int Primer(vector<int> v);
     int SHoraN(string letter);
 
-    std::vector<string> NDestinoN (std::vector<Vuelo> arr); //Metodos de revision
-    std::vector<int> NAeroLineaN (std::vector<Vuelo> arr);
-    std::vector<int> NHoraN (std::vector<Vuelo> arr);
+    std::vector<string> NDestinoN (vector<Vuelo> arr); //Metodos de revision
+    std::vector<int> NAeroLineaN (vector<Vuelo> arr);
+    std::vector<int> NHoraN (vector<Vuelo> arr);
 
     void imprime_info();                                    //Metodos de impresion
-    void imprime_info(std::vector<Vuelo> arr);
+    void imprime_info(vector<Vuelo> arr);
     void imprime_avion();
+    void imprime_menu();
+    void imprime_orden();
+    void imprime_error(int);
 
     string get_Destino(){return Destino;}                   //Metodos Geter
     int get_AerolineaN(){return AerolineaN;}
@@ -68,7 +72,7 @@ Vuelo::Vuelo (){
     Terminal=" ";   
 }
 
-Vuelo::Vuelo (std::string Des, std::string Aero, std::string Mat, std::string Hor, std::string Pue, std::string Ter){
+Vuelo::Vuelo (string Des, string Aero, string Mat, string Hor, string Pue, string Ter){
     Destino    = Des;
     DestinoN   = ASCII(Des);
     Aerolinea  = Aero;
@@ -80,7 +84,7 @@ Vuelo::Vuelo (std::string Des, std::string Aero, std::string Mat, std::string Ho
     Terminal   = Ter;
 }
 
-std::vector<int> Vuelo :: ASCII(std::string letter){
+std::vector<int> Vuelo :: ASCII(string letter){
     int L= letter.length();
     std::vector<int> vec;
     for (int i = 0; i < L; i++){
@@ -90,7 +94,7 @@ std::vector<int> Vuelo :: ASCII(std::string letter){
     return vec;
 }
 
-int Vuelo :: Primer(std::vector<int> v){
+int Vuelo :: Primer(vector<int> v){
     int res = v[0];
     return res;
 }
@@ -114,7 +118,7 @@ int Vuelo:: SHoraN(string letter){
     return sum;
 }
 
-std::vector<string> Vuelo::NDestinoN(std::vector<Vuelo> arr) {
+std::vector<string> Vuelo::NDestinoN(vector<Vuelo> arr) {
     std::vector<string> vec;
     for (int i = 0; i < arr.size(); i++) {
         vec.push_back(arr[i].get_Destino());
@@ -122,7 +126,7 @@ std::vector<string> Vuelo::NDestinoN(std::vector<Vuelo> arr) {
     return vec;
 }
 
-std::vector<int> Vuelo::NAeroLineaN(std::vector<Vuelo> arr) {
+std::vector<int> Vuelo::NAeroLineaN(vector<Vuelo> arr) {
     std::vector<int> vec;
     for (int i = 0; i < arr.size(); i++) {
         vec.push_back(arr[i].get_AerolineaN());
@@ -130,7 +134,7 @@ std::vector<int> Vuelo::NAeroLineaN(std::vector<Vuelo> arr) {
     return vec;
 }
 
-std::vector<int> Vuelo::NHoraN(std::vector<Vuelo> arr) {
+std::vector<int> Vuelo::NHoraN(vector<Vuelo> arr) {
     std::vector<int> vec;
     for (int i = 0; i < arr.size(); i++) {
         vec.push_back(arr[i].get_HoraN());
@@ -138,7 +142,7 @@ std::vector<int> Vuelo::NHoraN(std::vector<Vuelo> arr) {
     return vec;
 }
 
-void Vuelo::imprime_info(std::vector<Vuelo> arr){
+void Vuelo::imprime_info(vector<Vuelo> arr){
     for (int i = 0; i < arr.size(); i++) {
         arr[i].imprime_info();
     }
@@ -156,15 +160,35 @@ void Vuelo::imprime_info(){
 }
 
 void Vuelo::imprime_avion(){
-cout<<"                                    |"                              <<endl;
-cout<<"                                    |"                              <<endl;
-cout<<"                                  .-'-."                            <<endl;
-cout<<"                                 ' ___ '"                           <<endl;
-cout<<"                       ---------'  .-.  '---------"                 <<endl;
-cout<<"       _________________________'  '-'  '_________________________" <<endl;
-cout<<"        ''''''-|---|--/    \==][^',_m_,'^][==/    \--|---|-''''''"  <<endl;
-cout<<"                      \    /  ||/   H   \||  \    /"                <<endl;
-cout<<"                       '--'   OO   O|O   OO   '--'"                 <<endl;
+cout << "                                    |"                               << endl;
+cout << "                                    |"                               << endl;
+cout << "                                  .-'-."                             << endl;
+cout << "                                 ' ___ '"                            << endl;
+cout << "                       ---------'  .-.  '---------"                  << endl;
+cout << "       _________________________'  '-'  '_________________________"  << endl;
+cout << "        ''''''-|---|--/      =][^',_m_,'^][==/      -|---|-''''''"   << endl;
+cout << "                           /  ||/   H     |       /"                 << endl;
+cout << "                       '--'   OO   O|O   OO   '--'"                  << endl;
+cout << "Bienvenido al sistema de busqueda de vuelos del Aeropuerto Internacional Benito Juarez Ciudad de Mexico:" << endl;
 }
 
+void Vuelo::imprime_menu(){
+    cout << "_______________________________________ \n";
+    cout << "Que quieres hacer?: "<<endl;
+    cout << "1. Buscar Vuelo de Salida"<<endl;
+    cout << "2. Salir"<<endl;
+}
+
+void Vuelo::imprime_orden(){
+    cout << "_______________________________________ \n";
+    cout << "Como lo quieres ordenado?" << endl;
+    cout << "1. Hora" << endl;
+    cout << "2. Aerolinea" << endl;
+}
+
+void Vuelo::imprime_error(int x){
+    if (x == 1){cout << "ERROR RESPUESTA NO DISPONIBLE" << endl;}
+    if (x == 2) {cout << "ERROR NO EXISTE NINGUN VUELO A ESE DESTINO" << endl;}
+    if (x == 3) {cout << "ERROR RESPUESTA NO DISPONIBLE." << endl;}
+}
 #endif

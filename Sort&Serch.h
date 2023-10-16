@@ -11,19 +11,19 @@
 #include <vector>
 #include <list>
 #include "Vuelos.h"
+#include "list.h"
 
 using namespace std;
 
 template <class T>
 class Sorts {
 private:
-	std::vector<T> swap(std::vector<T>, int, int);
-	void copyArray(std::vector<T>&, std::vector<T>&, int, int);
+	vector<T> swap(vector<T>, int, int);
 public:
 	string arrayToString(const vector<T> v);
-	std::vector<T> ordenaBurbuja(std::vector<T>, int);
-	std::vector<T> busqBinaria(std::vector<T> Des, string DesF);
-	int cont(std::vector<T> Des) {return Des.size();};
+	vector<T> ordenaBurbuja(vector<T>, int);
+	vector<T> busqBinaria(List<T> Des, string DesF);
+	int cont(vector<T> Des) {return Des.size();};
 };
 
 template <class T>
@@ -39,15 +39,15 @@ string Sorts<T> :: arrayToString(const vector<T> v) {
 }
 
 template <class T>
-std::vector<T> Sorts<T>::swap(std::vector<T> v, int i, int j) {
+vector<T> Sorts<T> :: swap(vector<T> v, int i, int j) {
 	T aux = v[i];
-	v[i] = v[j];
-	v[j] = aux;
+	v[i]  = v[j];
+	v[j]  = aux;
 	return v;
 }
 
 template <class T>
-std::vector<T> Sorts<T>::ordenaBurbuja(std::vector<T> v, int n) {
+vector<T> Sorts<T> :: ordenaBurbuja(vector<T> v, int n) {
 	Vuelo MX;
 	for (int i = v.size()-1; i > 0; i--) {
 		for (int j = 0; j < i; j++) {
@@ -63,7 +63,7 @@ std::vector<T> Sorts<T>::ordenaBurbuja(std::vector<T> v, int n) {
 }
 
 template <class T>
-std::vector<T> Sorts<T>::busqBinaria(std::vector<T> Des, string DesF) {
+vector<T> Sorts<T> :: busqBinaria(List<T> Des, string DesF) {
 	string Mex;
 	int L= Des.size();
     std::vector<Vuelo> vec;
