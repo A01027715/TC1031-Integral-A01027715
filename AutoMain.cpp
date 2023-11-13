@@ -181,6 +181,8 @@ int main(){
 Este programa es uno relativamente sencillo, únicamente lee un archivo csv. los datos recopilados los convierte en objetos
 "Vuelos" y los agrega a una linked list, después despliega una interfaz con 2 opciones, una busca los vuelos en la
 linked list, primero los busca por destino y luego los ordena por hora o por aerolínea.
-la otra opción es agregar otro vuelo, este despliega una serie de preguntas para conseguir los datos del vuelo y 
-finalmente agrega los datos del vuelo al archivo .csv y crea un objeto que agrega a la linked list.
+la otra opción es agregar otro vuelo, este despliega una serie de preguntas para conseguir los datos del vuelo, 
+rescribe el .csv con los vuelode de la linked list, agrega los datos del nuevo vuelo al archivo .csv y crea un objeto 
+que agrega a la linked list, de esta manera mantenemos tanto el archivo actualizado con el nuevo vuelo y la lista para 
+futuras busqueda y nos evitamos otra lectura de todo el .csv.
 */
