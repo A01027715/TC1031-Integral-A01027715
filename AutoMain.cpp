@@ -19,6 +19,7 @@
 
 using namespace std;
 
+
 int main(){
     Vuelo         MX;                                       //Declaracion de variables.
     Sorts<Vuelo>  sorts;
@@ -26,7 +27,7 @@ int main(){
     int           ord,rin;
     char          end = ','; 
     List<Vuelo>   MEX;                                      //Utilizamos por su simplicidad y características un linked list para guardar la información sin filtrar de todos los vuelos.
-    vector<Vuelo> MEX1,MEX2;
+    vector<Vuelo> MEX1,MEX2;                                //El linked list es muy sencillo, es una serie de nodos interconectados por apuntadores que en este caso contienen un objeto y nosotros navegamos a treves de ellos por medio de sus conexiones y para agregar un nuevo valor únicamente agregamos un nuevo nodo con el objeto y lo conectamos con el nodo final.
     List<int>     Aeo, Hor;
 
     ifstream file("C:/Users/lando/Downloads/AeroMex.csv"); //Seleccion de la ubicacion de AeroMEX.csv
@@ -42,7 +43,7 @@ int main(){
         getline(stream, Estado, end);
         getline(stream, Pue, end);
         getline(stream, Ter, end);
-        Vuelo Vue (Des,Aero,Mat,Hor,Pue,Ter);
+        Vuelo Vue (Des,Aero,Mat,Hor,Pue,Ter,Estado);
 
         MEX.insertion(Vue);                                //Guardamos la infromacion de los vuelos como objetos en un linked list.
     }
@@ -70,6 +71,10 @@ int main(){
             MEX2 = sorts.ordenaBurbuja(MEX1,2);
             MX.imprime_info(MEX2);
         }
+
+        else{
+            cout<<"error"<<endl;
+        }
     }
     MX.imprime_menu();
     cout << "1" << endl;
@@ -96,5 +101,86 @@ int main(){
     MX.imprime_menu();
     cout << "2" << endl;
     rin = 2;
+    if (rin == 2) {                                       // funcion para agregar nuevo vuelo
+        Vuelo Temp;
+        ofstream arch("C:/Users/lando/Downloads/AeroMex.csv");
+        for (int i=0; i <= MEX.getsize()-1;i++){
+            string Des, Aero, Mat, Hor, Estado, Pue, Ter;
+            Temp= MEX.valor(i);
+            Des= Temp.get_Destino();
+            Aero= Temp.get_Aerolinea();
+            Mat= Temp.get_Matricula();
+            Hor= Temp.get_Hora();
+            Pue= Temp.get_Puerta();
+            Ter= Temp.get_Terminal();
+            Estado= Temp.get_Estado();
+            arch<<Des<<','<<Aero<<','<<Mat<<','<<Hor<<','<<Estado<<','<<Pue<<endl;
+        }
+        string Des, Aero, Mat, Hor, Estado, Pue, Ter;
+        cout << "_______________________________________ "<<endl;  //realizamos preguntas para saber los datos del vuelo
+        cout<<"Favor de responder las siguientes preguntas en el formato indicado en los parentesis para agregar el vuelo a la base de datos:"<<endl;
+        cout<<"A donde va el vuelo? (Nombre de destino)"<<endl;
+        Des="QUERETARO";
+        cout<<Des<<endl;
+        cout<<"Cual es la Aerolinea que lleva a cabo el vuelo? (Nombre de la aerolinea)"<<endl;
+        Aero="AeroMexico";
+        cout<<Aero<<endl;
+        cout<<"Cual es la matricula de identificacion del vuelo? (Matricula de identificacion del vuelo)"<<endl;
+        Mat="AM 2531";
+        cout<<Mat<<endl;
+        cout<<"A que hora despega el vuelo? (hh:mm)"<<endl;
+        Hor="12:55";
+        cout<<Hor<<endl;
+        cout<<"Cual es el estado del vuelo? (TIEMPO/RETRASADO)"<<endl;
+        Estado="RETRASADO";
+        cout<<Estado<<endl;
+        cout<<"Cual es la puerta de embarque? (Letra de puerta de embarque)"<<endl;
+        Pue="A";
+        cout<<Pue<<endl;
+        cout<<"Cual es la terminal de embarque? (Numero de Terminal)"<<endl;
+        Ter="1";
+        cout<<Ter<<endl;
+
+        arch<<Des<<','<<Aero<<','<<Mat<<','<<Hor<<','<<Estado<<','<<Pue<<endl; //agregamos el vuelo al archivo.
+        arch.close();
+        cout << "\n\n_______________________________________ \n";
+        cout<<"Se a agregado el vuelo con exito"<<endl;
+
+        Vuelo Vue (Des,Aero,Mat,Hor,Pue,Ter,Estado);                                 
+        MEX.insertion(Vue);                                                    //agregamos el valor a la linked list.
+        
+    }
+    MX.imprime_menu();                                   
+    cout << "1" << endl;
+    rin = 1;
+    if (rin == 1){                                       // Realizamos la busqueda del destino para confirmar la existencia del nuevo valor.                            
+        cout << "_______________________________________ \n";
+        cout << "A donde quieres ir?: ";
+        cout << "QUERETARO" << endl;
+        res = "QUERETARO";
+        MEX1 =  MEX.search(res);
+
+        if (sorts.cont(MEX1) != 0){
+            MX.imprime_orden();
+            cout << "1" << endl;
+            MEX2 = sorts.ordenaBurbuja(MEX1,1);
+            MX.imprime_info(MEX2);
+
+            MX.imprime_orden();
+            cout << "2" << endl;
+            MEX2 = sorts.ordenaBurbuja(MEX1,2);
+            MX.imprime_info(MEX2);
+        }
+    }
+    MX.imprime_menu();
+    cout << "3" << endl;
     file.close();
 }
+
+/*
+Este programa es uno relativamente sencillo, únicamente lee un archivo csv. los datos recopilados los convierte en objetos
+"Vuelos" y los agrega a una linked list, después despliega una interfaz con 2 opciones, una busca los vuelos en la
+linked list, primero los busca por destino y luego los ordena por hora o por aerolínea.
+la otra opción es agregar otro vuelo, este despliega una serie de preguntas para conseguir los datos del vuelo y 
+finalmente agrega los datos del vuelo al archivo .csv y crea un objeto que agrega a la linked list.
+*/

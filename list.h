@@ -20,7 +20,6 @@ private:
 	Link<T> *next;
 
 	friend class List<T>;
-	friend class ListIterator<T>;
 };
 
 template <class T>
@@ -30,13 +29,14 @@ public:
 
 	void     insertion(T);
 	vector<T> search(string);
+	vector<T> valorT();
 	string   toString() const;
+	int getsize();
+	T valor(int);
 
 private:
 	Link<T>  *head;
 	int 	 size;
-
-	friend class ListIterator<T>;
 };
 
 template <class T>
@@ -57,6 +57,7 @@ void List<T>::insertion(T valor) {
         }
         curr -> next = newVal;
     }
+	size= size + 1;
 }
 
 template <class T>
@@ -80,4 +81,46 @@ vector<T> List<T>::search(string valor) {
 	}
 	return R1;
 }
+
+template <class T>
+vector<T> List<T>::valorT() {
+	Link<T> *curr = head;
+	int index = 0;
+	T Lec1;
+    vector<T> R1;
+
+
+	while (curr) {
+		if (index<=size){
+			return R1;
+		}
+		Lec1= curr -> value;
+		R1.push_back(Lec1);
+
+		curr = curr -> next;
+		index++;
+	}
+}
+
+template <class T>
+T List<T>::valor(int av) {
+	Link<T> *curr = head;
+	int index=0;
+	T Lec1;
+
+	while (curr) {
+		if (index==av){
+		Lec1= curr -> value;
+		return Lec1;
+		}
+		curr = curr -> next;
+		index++;
+	}
+}
+
+template <class T>
+int List<T>::getsize(){
+	return size;
+}
+
 #endif

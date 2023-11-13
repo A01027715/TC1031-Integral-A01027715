@@ -21,19 +21,20 @@ using namespace std;
 
 class Vuelo {
 private:
-    std::string Destino;
-    std::vector<int> DestinoN;
-    std::string Aerolinea;
+    string Destino;
+    vector<int> DestinoN;
+    string Aerolinea;
     int AerolineaN;
-    std::string Matricula;
-    std::string Hora;
+    string Matricula;
+    string Hora;
     int HoraN;
-    std::string Puerta;
-    std::string Terminal;
+    string Puerta;
+    string Terminal;
+    string Estado;
 
 public:
 	Vuelo ();                                               //Metodos Constructores
-    Vuelo (string Des, string Aero, string Mat, string Hor, string Pue, string Ter);
+    Vuelo (string Des, string Aero, string Mat, string Hor, string Pue, string Ter, string Es);
 
     std::vector<int> ASCII (string letter);            //Metodos de calculo o traduccion
     int Primer(vector<int> v);
@@ -50,7 +51,13 @@ public:
     void imprime_orden();
     void imprime_error(int);
 
-    string get_Destino(){return Destino;}                   //Metodos Geter
+    string get_Destino(){return Destino;}                  //Metodos Geter
+    string get_Aerolinea(){return Aerolinea;};
+    string get_Matricula(){return Matricula;};
+    string get_Hora(){return Hora;};
+    string get_Puerta(){return Puerta;};
+    string get_Terminal(){return Terminal;};
+    string get_Estado(){return Estado;};
     int get_AerolineaN(){return AerolineaN;}
     int get_HoraN(){return HoraN;}
 
@@ -72,7 +79,7 @@ Vuelo::Vuelo (){
     Terminal=" ";   
 }
 
-Vuelo::Vuelo (string Des, string Aero, string Mat, string Hor, string Pue, string Ter){
+Vuelo::Vuelo (string Des, string Aero, string Mat, string Hor, string Pue, string Ter, string Es){
     Destino    = Des;
     DestinoN   = ASCII(Des);
     Aerolinea  = Aero;
@@ -82,6 +89,7 @@ Vuelo::Vuelo (string Des, string Aero, string Mat, string Hor, string Pue, strin
     HoraN      = SHoraN(Hor);
     Puerta     = Pue;
     Terminal   = Ter;
+    Estado     = Es;
 }
 
 std::vector<int> Vuelo :: ASCII(string letter){
@@ -175,8 +183,9 @@ cout << "Bienvenido al sistema de busqueda de vuelos del Aeropuerto Internaciona
 void Vuelo::imprime_menu(){
     cout << "_______________________________________ \n";
     cout << "Que quieres hacer?: "<<endl;
-    cout << "1. Buscar Vuelo de Salida"<<endl;
-    cout << "2. Salir"<<endl;
+    cout << "1. Consultar Vuelo de Salida"<<endl;
+    cout << "2. Agregar Vuelo de Salida"<<endl;
+    cout << "3. Salir"<<endl;
 }
 
 void Vuelo::imprime_orden(){
