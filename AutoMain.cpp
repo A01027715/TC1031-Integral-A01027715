@@ -119,13 +119,13 @@ int main(){
         string Des, Aero, Mat, Hor, Estado, Pue, Ter;
         cout << "_______________________________________ "<<endl;  //realizamos preguntas para saber los datos del vuelo
         cout<<"Favor de responder las siguientes preguntas en el formato indicado en los parentesis para agregar el vuelo a la base de datos:"<<endl;
-        cout<<"A donde va el vuelo? (Nombre de destino)"<<endl;
+        cout<<"A donde va el vuelo? (Nombre de destino en MAYUSCULA)"<<endl;
         Des="QUERETARO";
         cout<<Des<<endl;
-        cout<<"Cual es la Aerolinea que lleva a cabo el vuelo? (Nombre de la aerolinea)"<<endl;
-        Aero="AeroMexico";
+        cout<<"Cual es la Aerolinea que lleva a cabo el vuelo? (Nombre de la aerolinea en MAYUSCULA)"<<endl;
+        Aero="AEROMEXICO";
         cout<<Aero<<endl;
-        cout<<"Cual es la matricula de identificacion del vuelo? (Matricula de identificacion del vuelo)"<<endl;
+        cout<<"Cual es la matricula de identificacion del vuelo? (Matricula de identificacion del vuelo en MAYUSCULA)"<<endl;
         Mat="AM 2531";
         cout<<Mat<<endl;
         cout<<"A que hora despega el vuelo? (hh:mm)"<<endl;
@@ -134,7 +134,7 @@ int main(){
         cout<<"Cual es el estado del vuelo? (TIEMPO/RETRASADO)"<<endl;
         Estado="RETRASADO";
         cout<<Estado<<endl;
-        cout<<"Cual es la puerta de embarque? (Letra de puerta de embarque)"<<endl;
+        cout<<"Cual es la puerta de embarque? (Letra de puerta de embarque en MAYUSCULA)"<<endl;
         Pue="A";
         cout<<Pue<<endl;
         cout<<"Cual es la terminal de embarque? (Numero de Terminal)"<<endl;
