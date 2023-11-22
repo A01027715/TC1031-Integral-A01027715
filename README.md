@@ -11,3 +11,10 @@ Como proyecto de TC1031 realice el siguiente trabajo. Este es un sistema le faci
 - El main se llama "main.cpp", tambien es importante descargar el .csv "AeroMEX.csv" .h de vuelos y serch.
 - ES IMPORTANTE El main.cpp debe de ser editado a la hora de las decarga en la linea 24 se debe de cambiar la direccion del archivo a la ubiacion en la que used lo haya guardad, si no hace esto el progrma no sera capas de leer el .csv.
 - AutoMain.cpp es un archivo de c++ que tiene programado un caso de uso y no es necesario la interacción del usuario, únicamente que inicie el programa.
+
+## Estructura de datos
+Utilizamos por su simplicidad y características un linked list para guardar la información sin filtrar de todos los vuelos.
+El linked list es muy sencillo, es una serie de nodos interconectados por apuntadores que en este caso contienen un objeto y nosotros navegamos a treves de ellos por medio de sus conexiones y para agregar un nuevo valor únicamente agregamos un nuevo nodo con el objeto y lo conectamos con el nodo final.
+
+## Reflexión
+Este programa es uno relativamente sencillo, únicamente lee un archivo csv. los datos recopilados los convierte en objetos "Vuelos" y los agrega a una linked list, después despliega una interfaz con 2 opciones, una busca los vuelos en la linked list, primero los busca por destino y luego los ordena por hora o por aerolínea. la otra opción es agregar otro vuelo, este despliega una serie de preguntas para conseguir los datos del vuelo, rescribe el .csv con los vuelode de la linked list, agrega los datos del nuevo vuelo al archivo .csv y crea un objeto que agrega a la linked list, de esta manera mantenemos tanto el archivo actualizado con el nuevo vuelo y la lista para futuras busqueda y nos evitamos otra lectura de todo el .csv.
