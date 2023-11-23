@@ -200,4 +200,5 @@ void Vuelo::imprime_error(int x){
     if (x == 2) {cout << "ERROR NO EXISTE NINGUN VUELO A ESE DESTINO" << endl;}
     if (x == 3) {cout << "ERROR RESPUESTA NO DISPONIBLE." << endl;}
 }
+
 #endif

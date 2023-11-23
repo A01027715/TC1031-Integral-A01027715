@@ -89,10 +89,9 @@ vector<T> List<T>::valorT() {
 	T Lec1;
     vector<T> R1;
 
-
 	while (curr) {
-		if (index<=size){
-			return R1;
+		if (index==size){
+			break;
 		}
 		Lec1= curr -> value;
 		R1.push_back(Lec1);
@@ -100,6 +99,7 @@ vector<T> List<T>::valorT() {
 		curr = curr -> next;
 		index++;
 	}
+	return R1;
 }
 
 template <class T>

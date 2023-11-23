@@ -26,8 +26,8 @@ int main(){
     string        line, res;
     int           ord,rin;
     char          end = ','; 
-    List<Vuelo>   MEX;                                      //Utilizamos por su simplicidad y características un linked list para guardar la información sin filtrar de todos los vuelos.
-    vector<Vuelo> MEX1,MEX2;                                //El linked list es muy sencillo, es una serie de nodos interconectados por apuntadores que en este caso contienen un objeto y nosotros navegamos a treves de ellos por medio de sus conexiones y para agregar un nuevo valor únicamente agregamos un nuevo nodo con el objeto y lo conectamos con el nodo final.
+    List<Vuelo>   MEX;                                      
+    vector<Vuelo> MEX1,MEX2;                                
     List<int>     Aeo, Hor;
 
     ifstream file("C:/Users/lando/Downloads/AeroMex.csv"); //Seleccion de la ubicacion de AeroMEX.csv
@@ -101,12 +101,14 @@ int main(){
     MX.imprime_menu();
     cout << "2" << endl;
     rin = 2;
-    if (rin == 2) {                                       // funcion para agregar nuevo vuelo
+    if (rin == 2) {                                                                  // funcion para agregar nuevo vuelo
         Vuelo Temp;
+        vector<Vuelo> MEX3;
         ofstream arch("C:/Users/lando/Downloads/AeroMex.csv");
-        for (int i=0; i <= MEX.getsize()-1;i++){
+        MEX3= MEX.valorT();
+        for (int i=0; i <= MEX3.size()-1;i++){                                       //Sobre escritura de datos
             string Des, Aero, Mat, Hor, Estado, Pue, Ter;
-            Temp= MEX.valor(i);
+            Temp= MEX3[i];
             Des= Temp.get_Destino();
             Aero= Temp.get_Aerolinea();
             Mat= Temp.get_Matricula();
@@ -117,7 +119,7 @@ int main(){
             arch<<Des<<','<<Aero<<','<<Mat<<','<<Hor<<','<<Estado<<','<<Pue<<endl;
         }
         string Des, Aero, Mat, Hor, Estado, Pue, Ter;
-        cout << "_______________________________________ "<<endl;  //realizamos preguntas para saber los datos del vuelo
+        cout << "_______________________________________ "<<endl;                    //realizamos preguntas para saber los datos del vuelo
         cout<<"Favor de responder las siguientes preguntas en el formato indicado en los parentesis para agregar el vuelo a la base de datos:"<<endl;
         cout<<"A donde va el vuelo? (Nombre de destino en MAYUSCULA)"<<endl;
         Des="QUERETARO";

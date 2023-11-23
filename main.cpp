@@ -82,47 +82,49 @@ int main(){
 
 
         else if (rin == 2) {
-            Vuelo Temp;
-            ofstream arch("C:/Users/lando/Downloads/AeroMex.csv");
-            for (int i=0; i <= MEX.getsize()-1;i++){
-                string Des, Aero, Mat, Hor, Estado, Pue, Ter;
-                Temp= MEX.valor(i);
-                Des= Temp.get_Destino();
-                Aero= Temp.get_Aerolinea();
-                Mat= Temp.get_Matricula();
-                Hor= Temp.get_Hora();
-                Pue= Temp.get_Puerta();
-                Ter= Temp.get_Terminal();
-                Estado= Temp.get_Estado();
-                arch<<Des<<','<<Aero<<','<<Mat<<','<<Hor<<','<<Estado<<','<<Pue<<endl;
-            }
-            
+        Vuelo Temp;
+        vector<Vuelo> MEX3;
+        ofstream arch("C:/Users/lando/Downloads/AeroMex.csv");
+        MEX3= MEX.valorT();
+        for (int i=0; i <= MEX3.size()-1;i++){
             string Des, Aero, Mat, Hor, Estado, Pue, Ter;
-            cout << "_______________________________________ "<<endl;
-            cout<<"Favor de responder las siguientes preguntas en el formato indicado en los parentesis para agregar el vuelo a la base de datos:"<<endl;
-            cout<<"A donde va el vuelo? (Nombre de destino)"<<endl;
-            fflush(stdin);
-            getline(cin,Des);
-            cout<<"Cual es la Aerolinea que lleva a cabo el vuelo? (Nombre de la aerolinea en MAYUSCULA)"<<endl;
-            getline(cin,Aero);
-            cout<<"Cual es la matricula de identificacion del vuelo? (Matricula de identificacion del vuelo en MAYUSCULA)"<<endl;
-            getline(cin,Mat);
-            cout<<"A que hora despega el vuelo? (hh:mm)"<<endl;
-            getline(cin,Hor);
-            cout<<"Cual es el estado del vuelo? (TIEMPO/RETRASADO en MAYUSCULA)"<<endl;
-            getline(cin,Estado);
-            cout<<"Cual es la puerta de embarque? (Letra de puerta de embarque en MAYUSCULA)"<<endl;
-            getline(cin,Pue);
-            cout<<"Cual es la terminal de embarque? (Numero de Terminal)"<<endl;
-            getline(cin,Ter);
+            Temp= MEX3[i];
+            Des= Temp.get_Destino();
+            Aero= Temp.get_Aerolinea();
+            Mat= Temp.get_Matricula();
+            Hor= Temp.get_Hora();
+            Pue= Temp.get_Puerta();
+            Ter= Temp.get_Terminal();
+            Estado= Temp.get_Estado();
             arch<<Des<<','<<Aero<<','<<Mat<<','<<Hor<<','<<Estado<<','<<Pue<<endl;
-            arch.close();
+        }
+            
+        string Des, Aero, Mat, Hor, Estado, Pue, Ter;
+        cout << "_______________________________________ "<<endl;
+        cout<<"Favor de responder las siguientes preguntas en el formato indicado en los parentesis para agregar el vuelo a la base de datos:"<<endl;
+        cout<<"A donde va el vuelo? (Nombre de destino)"<<endl;
+        fflush(stdin);
+        getline(cin,Des);
+        cout<<"Cual es la Aerolinea que lleva a cabo el vuelo? (Nombre de la aerolinea en MAYUSCULA)"<<endl;
+        getline(cin,Aero);
+        cout<<"Cual es la matricula de identificacion del vuelo? (Matricula de identificacion del vuelo en MAYUSCULA)"<<endl;
+        getline(cin,Mat);
+        cout<<"A que hora despega el vuelo? (hh:mm)"<<endl;
+        getline(cin,Hor);
+        cout<<"Cual es el estado del vuelo? (TIEMPO/RETRASADO en MAYUSCULA)"<<endl;
+        getline(cin,Estado);
+        cout<<"Cual es la puerta de embarque? (Letra de puerta de embarque en MAYUSCULA)"<<endl;
+        getline(cin,Pue);
+        cout<<"Cual es la terminal de embarque? (Numero de Terminal)"<<endl;
+        getline(cin,Ter);
+        arch<<Des<<','<<Aero<<','<<Mat<<','<<Hor<<','<<Estado<<','<<Pue<<endl;
+        arch.close();
 
-            cout << "\n_______________________________________ \n";
-            cout<<"Se a agregado el vuelo con exito"<<endl;
+        cout << "\n_______________________________________ \n";
+        cout<<"Se a agregado el vuelo con exito"<<endl;
 
-            Vuelo Vue (Des,Aero,Mat,Hor,Pue,Ter,Estado);
-            MEX.insertion(Vue);
+        Vuelo Vue (Des,Aero,Mat,Hor,Pue,Ter,Estado);
+        MEX.insertion(Vue);
         }
 
         else if (rin == 3) {break;}
