@@ -28,7 +28,7 @@ int main(){
     vector<Vuelo> MEX1,MEX2;
     vector<int>   Aeo, Hor;
 
-    ifstream file("C:/Users/lando/Downloads/AeroMex.csv");
+    ifstream file("AeroMEX.csv");
 
     while(getline(file, line)){
         stringstream stream(line);  
@@ -84,7 +84,7 @@ int main(){
         else if (rin == 2) {
         Vuelo Temp;
         vector<Vuelo> MEX3;
-        ofstream arch("AeroMex.csv");
+        ofstream arch("AeroMEX.csv");
         MEX3= MEX.valorT();
         for (int i=0; i <= MEX3.size()-1;i++){
             string Des, Aero, Mat, Hor, Estado, Pue, Ter;
