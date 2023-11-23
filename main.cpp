@@ -98,12 +98,12 @@ int main(){
             Estado= Temp.get_Estado();
             arch<<Des<<','<<Aero<<','<<Mat<<','<<Hor<<','<<Estado<<','<<Pue<<endl;
         }
-            
+        
+        fflush(stdin);
         string Des, Aero, Mat, Hor, Estado, Pue, Ter;
         cout << "_______________________________________ "<<endl;
         cout<<"Favor de responder las siguientes preguntas en el formato indicado en los parentesis para agregar el vuelo a la base de datos:"<<endl;
         cout<<"A donde va el vuelo? (Nombre de destino)"<<endl;
-        fflush(stdin);
         getline(cin,Des);
         cout<<"Cual es la Aerolinea que lleva a cabo el vuelo? (Nombre de la aerolinea en MAYUSCULA)"<<endl;
         getline(cin,Aero);
