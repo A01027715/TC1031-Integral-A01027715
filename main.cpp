@@ -84,7 +84,7 @@ int main(){
         else if (rin == 2) {
         Vuelo Temp;
         vector<Vuelo> MEX3;
-        ofstream arch("C:/Users/lando/Downloads/AeroMex.csv");
+        ofstream arch("AeroMex.csv");
         MEX3= MEX.valorT();
         for (int i=0; i <= MEX3.size()-1;i++){
             string Des, Aero, Mat, Hor, Estado, Pue, Ter;
