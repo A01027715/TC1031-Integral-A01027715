@@ -45,12 +45,14 @@ int main(){
 
         MEX.insertion(Vue); 
     }
+    file.close();
 
     MX.imprime_avion();
 
     while (true){
         MX.imprime_menu();
         cin >> rin;
+        cin.ignore();
         if (rin == 1){
             cout << "_______________________________________ \n";
             cout << "A donde quieres ir?: ";
@@ -82,30 +84,17 @@ int main(){
 
 
         else if (rin == 2) {
-        fflush(stdin);
         Vuelo Temp;
         vector<Vuelo> MEX3;
-        ofstream arch("AeroMEX.csv");
+        ofstream arch("AeroMEX.csv",ios::app);
         MEX3= MEX.valorT();
-        for (int i=0; i <= MEX3.size()-1;i++){
-            string Des, Aero, Mat, Hor, Estado, Pue, Ter;
-            Temp= MEX3[i];
-            Des= Temp.get_Destino();
-            Aero= Temp.get_Aerolinea();
-            Mat= Temp.get_Matricula();
-            Hor= Temp.get_Hora();
-            Pue= Temp.get_Puerta();
-            Ter= Temp.get_Terminal();
-            Estado= Temp.get_Estado();
-            arch<<Des<<','<<Aero<<','<<Mat<<','<<Hor<<','<<Estado<<','<<Pue<<endl;
-        }
         
-        fflush(stdin);
+        
         string Des, Aero, Mat, Hor, Estado, Pue, Ter;
         cout << "_______________________________________ "<<endl;
         cout<<"Favor de responder las siguientes preguntas en el formato indicado en los parentesis para agregar el vuelo a la base de datos:"<<endl;
         cout<<"A donde va el vuelo? (Nombre de destino)"<<endl;
-        fflush(stdin);
+        
         getline(cin,Des);
         cout<<"Cual es la Aerolinea que lleva a cabo el vuelo? (Nombre de la aerolinea en MAYUSCULA)"<<endl;
         getline(cin,Aero);
@@ -133,5 +122,4 @@ int main(){
 
         else {MX.imprime_error(3);}
     }
-    file.close();
 }
