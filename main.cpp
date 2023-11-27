@@ -82,19 +82,17 @@ int main(){
             else {MX.imprime_error(2);}
         }
 
-
         else if (rin == 2) {
         Vuelo Temp;
         vector<Vuelo> MEX3;
         ofstream arch("AeroMEX.csv",ios::app);
         MEX3= MEX.valorT();
         
-        
         string Des, Aero, Mat, Hor, Estado, Pue, Ter;
         cout << "_______________________________________ "<<endl;
         cout<<"Favor de responder las siguientes preguntas en el formato indicado en los parentesis para agregar el vuelo a la base de datos:"<<endl;
-        cout<<"A donde va el vuelo? (Nombre de destino)"<<endl;
         
+        cout<<"A donde va el vuelo? (Nombre de destino)"<<endl;
         getline(cin,Des);
         cout<<"Cual es la Aerolinea que lleva a cabo el vuelo? (Nombre de la aerolinea en MAYUSCULA)"<<endl;
         getline(cin,Aero);
