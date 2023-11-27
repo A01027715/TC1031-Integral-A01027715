@@ -82,6 +82,7 @@ int main(){
 
 
         else if (rin == 2) {
+        fflush(stdin);
         Vuelo Temp;
         vector<Vuelo> MEX3;
         ofstream arch("AeroMEX.csv");
@@ -104,6 +105,7 @@ int main(){
         cout << "_______________________________________ "<<endl;
         cout<<"Favor de responder las siguientes preguntas en el formato indicado en los parentesis para agregar el vuelo a la base de datos:"<<endl;
         cout<<"A donde va el vuelo? (Nombre de destino)"<<endl;
+        fflush(stdin);
         getline(cin,Des);
         cout<<"Cual es la Aerolinea que lleva a cabo el vuelo? (Nombre de la aerolinea en MAYUSCULA)"<<endl;
         getline(cin,Aero);

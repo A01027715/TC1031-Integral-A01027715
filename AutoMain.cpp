@@ -30,7 +30,7 @@ int main(){
     vector<Vuelo> MEX1,MEX2;                                
     List<int>     Aeo, Hor;
 
-    ifstream file("C:/Users/lando/Downloads/AeroMex.csv"); //Seleccion de la ubicacion de AeroMEX.csv
+    ifstream file("AeroMex.csv"); //Seleccion de la ubicacion de AeroMEX.csv
 
     while(getline(file, line)){                            //Lectura de AeroMEX.csv
         stringstream stream(line);  
@@ -104,7 +104,7 @@ int main(){
     if (rin == 2) {                                                                  // funcion para agregar nuevo vuelo
         Vuelo Temp;
         vector<Vuelo> MEX3;
-        ofstream arch("C:/Users/lando/Downloads/AeroMex.csv");
+        ofstream arch("AeroMex.csv");
         MEX3= MEX.valorT();
         for (int i=0; i <= MEX3.size()-1;i++){                                       //Sobre escritura de datos
             string Des, Aero, Mat, Hor, Estado, Pue, Ter;
