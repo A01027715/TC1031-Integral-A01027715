@@ -12,9 +12,27 @@ Como proyecto de TC1031 realice el siguiente trabajo. Este es un sistema le faci
 - ES IMPORTANTE El main.cpp debe de ser editado a la hora de las decarga en la linea 24 se debe de cambiar la direccion del archivo a la ubiacion en la que used lo haya guardad, si no hace esto el progrma no sera capas de leer el .csv.
 - AutoMain.cpp es un archivo de c++ que tiene programado un caso de uso y no es necesario la interacción del usuario, únicamente que inicie el programa.
 
-## Estructura de datos
-Utilizamos por su simplicidad y características un linked list para guardar la información sin filtrar de todos los vuelos.
-El linked list es muy sencillo, es una serie de nodos interconectados por apuntadores que en este caso contienen un objeto y nosotros navegamos a treves de ellos por medio de sus conexiones y para agregar un nuevo valor únicamente agregamos un nuevo nodo con el objeto y lo conectamos con el nodo final.
+#SICT0302B: Toma decisiones
+##Selecciona y usa una estructura lineal adecuada al problema
+Por su simplicidad y características utilice un linked list para guardar la información sin filtrar de todos los vuelos en objetos que cuentan con todos los datos. El linked list es muy sencillo, es una serie de nodos interconectados por apuntadores que en este caso contienen un objeto y nosotros navegamos a treves de ellos por medio de sus conexiones y para agregar un nuevo valor únicamente agregamos un nuevo nodo con el objeto y lo conectamos con el nodo final. Esto lo convierte en una muy buena opción debido a que no existe una característica especifica que nos permita diferenciar entre los vuelos, por lo que tendremos que revisar de uno por uno los vuelos que llevan al destino esperado, los que al final con una función los guarda en un vector para posteriormente ser ordenandos.
 
-## Análisis de complejidad
-Este programa es uno relativamente sencillo, únicamente lee un archivo csv. los datos recopilados los convierte en objetos "Vuelos" y los agrega a una linked list, después despliega una interfaz con 2 opciones, una busca los vuelos en la linked list, primero los busca por destino y luego los ordena por hora o por aerolínea. la otra opción es agregar otro vuelo, este despliega una serie de preguntas para conseguir los datos del vuelo, agrega los datos del nuevo vuelo al archivo .csv y crea un objeto que agrega a la linked list, de esta manera mantenemos tanto el archivo actualizado con el nuevo vuelo y la lista para futuras busqueda y nos evitamos otra lectura de todo el .csv.
+##Selecciona un algoritmo de ordenamiento adecuado al problema
+Para ordenar los datos resultantes escogí el bubble sort, esto debido a su simplicidad, ya que los vuelos recopilados de una sola búsqueda no son muchos, por lo que no es necesario utilizar algún algoritmo demasiado complicado para este caso, este funciona recibiendo el vector con los objetos de vuelos recopilados y un numero integro entre 1 y 2, 1 si lo quiere ordenado por hora y 2 si lo quiere ordenado por aerolínea. Con esta información realiza el ordenamiento revisando dato por dato si es menor o mayor y realizando los cambios de lugar.
+
+#SICT0301B: Evalúa los componentes
+##Presenta Casos de Prueba correctos y completos para todas las funciones y procedimientos del programa,
+
+
+##Hace un análisis de complejidad correcto y completo para todo el programa y sus compenetes,
+
+
+#SICT0303B: Implementa acciones científicas
+##Implementa mecanismos para consultar información de las estructuras correctos y útiles dentro de un programa.
+El programa permite al usuario realizar su búsqueda por nombre de destino y le permite ordenar las opciones de vuelo por hora o por aerolínea que realiza el vuelo.
+##Implementa mecanismos de lectura de archivos correctos y tiles dentro de un programa. Usar de manera
+Los vuelos están registrados en el archivo llamado AeroMEX.csv de donde se leen al iniciar el programa.
+##Implementa mecanismos de escritura de archivos correctos y útiles dentro de un programa. Usar de manera
+El programa como está destinado a los empleados del aeropuerto, tiene la opción de agregar nuevos vuelos, en esta opción se le solicita al usuario agregar los datos del vuelo con los cuales se  creara el nuevo vuelo y lo exportara al archivo ya existente de vuelos llamado "AeroMEX.csv".
+
+
+
