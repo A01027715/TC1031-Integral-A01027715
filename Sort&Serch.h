@@ -20,23 +20,9 @@ class Sorts {
 private:
 	vector<T> swap(vector<T>, int, int);
 public:
-	string arrayToString(const vector<T> v);
 	vector<T> ordenaBurbuja(vector<T>, int);
-	vector<T> busqBinaria(List<T> Des, string DesF);
 	int cont(vector<T> Des) {return Des.size();};
 };
-
-template <class T>
-string Sorts<T> :: arrayToString(const vector<T> v) {
-	stringstream aux;
-
-	aux << "[" << v[0];
-	for (int i = 1; i < v.size(); i++) {
-		aux << ", " << v[i];
-	}
-	aux << "]";
-	return aux.str();
-}
 
 template <class T>
 vector<T> Sorts<T> :: swap(vector<T> v, int i, int j) {
@@ -60,21 +46,6 @@ vector<T> Sorts<T> :: ordenaBurbuja(vector<T> v, int n) {
 		}
 	}
 	return v;
-}
-
-template <class T>
-vector<T> Sorts<T> :: busqBinaria(List<T> Des, string DesF) {
-	string Mex;
-	int L= Des.size();
-    std::vector<Vuelo> vec;
-
-    for (int i = 0; i < L; i++){
-		Mex= Des[i].get_Destino();
-		if (Mex == DesF){
-			vec.push_back(Des[i]);
-		}
-    }
-	return vec;
 }
 
 #endif 
