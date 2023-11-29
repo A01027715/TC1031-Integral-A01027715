@@ -3,7 +3,7 @@
 Como proyecto de TC1031 realice el siguiente trabajo. Este es un sistema le facilita búsqueda y agregado de vuelos de salida del Aeropuerto Internacional Benito Juarez Ciudad de Mexico a los empleados, El sistema primero recibe un .csv el cual leerá toda la información y guardar los datos de este en objetos llamados “Vuelos”. Después el usuario recibirá una bienvenida al sistema y se les desplegara un menú con tres opciones, en la primera se le solicitara el nombre del destino que busca, el sistema usa búsqueda de string para encontrar los vuelos con los que concuerda en destino final y los guarda en un vector, después se le pedirá al usuario como quiere ordenados los resultados de la búsqueda, por hora o por Aerolínea, finalmente el programa ordena los vuelos disponibles y se los imprime al usuario. La segunda opción le permite al usuario agregar los datos de un nuevo vuelo únicamente respondiendo las preguntas solicitadas, al finalizar las preguntas el programa escribir el .csv con el nuevo vuelo ya registrado. Por último la opción tres apaga el sistema de búsqueda.
 
 ## Funcionalidad
-- Necesita que las respuestas del destino se hagan en mayuscula.
+- Necesita que las respuestas del destino se hagan en MAYUSCULAS.
 - Responder las preguntas en el formato solicitado por el programa.
 
 ## Consideraciones
