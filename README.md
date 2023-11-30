@@ -36,14 +36,14 @@ Utilisamos L para longitud de un string y n para numero.
 Ordenamiento:
 - ordenaBurbuja(vector<T>, int): O(n^2) esto debido a que utliza 2 for anidados. (Donde n es el numero de datos que decesas ordenar)
 
-Linked list:
+### Linked list:
 -  insertion(T): O(n) esto debido al uso de un while. (Donde n es el numero de valores que se encuentran en el linked list)
 -  search(string): O(n) esto debido al uso de un while. (Donde n es el numero de valores que se encuentran en el linked list)
 -  valorT(): O(n) esto debido al uso de un while. (Donde n es el numero de valores que se encuentran en el linked list)
 -  getsize(): O(1) esto debido a que esta funcion solo debuelbe un valor.
 -  valor(int): O(n) esto debido al uso de un while. (Donde n es el numero de valores que se encuentran en el linked list)
 
-Vuelos:
+### Vuelos:
 - ASCII (string letter): O(L) esto debido a que depende de la longitud de un string. (Donde L es el numero de caracteres del string)
 - Primer(vector<int> v): O(1) esto debido a que esta funcion solo debuelbe un valor. 
 - SHoraN(string letter): O(L) esto debido a que depende de la longitud de un string. (Donde L es el numero de caracteres del string)
@@ -51,13 +51,14 @@ Vuelos:
 - NAeroLineaN (vector<Vuelo> arr): O(L) sto debido al uso de un for. (Donde n es el numero de vuelos del vector)
 - NHoraN (vector<Vuelo> arr): O(L) sto debido al uso de un for. (Donde n es el numero de vuelos del vector)
  
-Main:
+### Main:
 - Lectura de Archivo: O(n*m) esto debido a que la lectura depende del numero de lineas y el numero de campos por cada linea. (n es numero de lineas y m es numero de campos)
 - Busqueda: O(n) ya que se utiliza el serche de linked list que se menciono anteriormente. (Donde n es el numero de datos del linked list)
 - Ordenamiento: O(n^2) ya que se utiliza el Ordenamineto Burbuja se menciono anteriormente. (Donde n es el numero de datos que decesas ordenar)
 - Insercion de vuelos a Linked list: O(n) ya que depende del numero de vuelos del csv. (Donde n es el numero de vuelos del csv.)
 
-Complegidad de todo el programa: Debido a que la complegidad más alta de todo el programa es el metodo de ordenamiento (Ordenamineto Burbuja) entonces concluimos que la complegidad de todo el programa es de O(n^2).
+### Complegidad de todo el programa:
+Debido a que la complegidad más alta de todo el programa es el metodo de ordenamiento (Ordenamineto Burbuja) entonces concluimos que la complegidad de todo el programa es de O(n^2).
 
 # SICT0303B: Implementa acciones científicas
 ## Implementa mecanismos para consultar información de las estructuras correctos y útiles dentro de un programa:
