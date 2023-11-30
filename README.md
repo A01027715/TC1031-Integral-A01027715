@@ -48,6 +48,9 @@ Vuelos:
 - NDestinoN (vector<Vuelo> arr): O(n) sto debido al uso de un for.
 - NAeroLineaN (vector<Vuelo> arr): O(n) sto debido al uso de un for.
 - NHoraN (vector<Vuelo> arr): O(n) sto debido al uso de un for.
+ 
+Programa:
+- 
 
 # SICT0303B: Implementa acciones científicas
 ## Implementa mecanismos para consultar información de las estructuras correctos y útiles dentro de un programa:
